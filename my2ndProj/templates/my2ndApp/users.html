@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Users</title>
+  </head>
+  <body>
+    <h1>Here are your users for my2ndProj</h1>
+    {% if users %}
+    <ol>
+      {% for person in users %}
+      <li>User Info</li>
+      <ul>
+        <li>First Name: {{ person.fName }}</li>
+        <li>Last Name: {{ person.lName }}</li>
+        <li>Email Addr: {{ person.email }}</li>
+      </ul>
+      {% endfor %}
+    </ol>
+    {% endif %}
+  </body>
+</html>
