@@ -1,8 +1,12 @@
 from django import forms
 from django.core import validators
 
+def check_for_z(value):
+    if value[-1].lower() != 'z':
+        raise forms.ValidationError("Name needs to end with the letter 'Z'")
+
 class MyForm(forms.Form):
-    name = forms.CharField()
+    name = forms.CharField(validators=[check_for_z])
     email = forms.EmailField()
     text = forms.CharField(widget=forms.Textarea)
     botc = forms.CharField(required=False,
