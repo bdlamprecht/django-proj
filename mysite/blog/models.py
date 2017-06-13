@@ -30,7 +30,7 @@ class Comment(models.Model):
     create_date = models.DateTimeField(default=timezone.now())
     approved_comment = models.BooleanField(default=False)
 
-    def Approve(self):
+    def approve(self):
         self.approved_comment = True
         self.save()
 
