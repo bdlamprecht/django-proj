@@ -4,10 +4,12 @@ from django.contrib.auth import get_user_model
 
 import misaka
 
-from django import template
-register = template.Libary()
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
-# Create your models here.
+from django import template
+register = template.library
+
 class Group(models.Model):
     name = models.CharField(max_length=64,unique=True)
     slug = models.SlugField(allow_unicode=True,unique=True)
@@ -37,5 +39,5 @@ class GroupMember(models.Model):
     def __str__(self):
         return self.user.username
 
-    def Meta:
+    class Meta:
         unique_together = ('group','user')
